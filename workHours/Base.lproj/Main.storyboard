@@ -192,8 +192,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="F7g-dz-tYW"/>
                                         </constraints>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Past Hours" image="chevronRight">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -206,7 +206,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hZZ-16-nrM"/>
                                         </constraints>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Settings" image="chevronRight">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -294,14 +295,13 @@
                                             <action selector="closeBtnPressed:" destination="Wdb-w9-Ll2" eventType="touchUpInside" id="V89-fm-xLx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljG-p8-Rrf" customClass="insideButtonDesign" customModule="workHours" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljG-p8-Rrf" customClass="insideButtonDesign" customModule="workHours" customModuleProvider="target">
                                         <rect key="frame" x="16" y="58" width="343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Bm2-mH-JxU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Clock in">
+                                        <state key="normal" title="Clock in" image="chevronDown">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -316,6 +316,9 @@
                                         <date key="date" timeIntervalSinceReferenceDate="569646871.53914905">
                                             <!--2019-01-20 03:14:31 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="clockInChanged:" destination="Wdb-w9-Ll2" eventType="valueChanged" id="VA2-ji-BzC"/>
+                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-OB-ly0">
                                         <rect key="frame" x="16" y="16" width="298" height="23"/>
@@ -338,14 +341,13 @@
                                             <action selector="checkHours:" destination="Wdb-w9-Ll2" eventType="touchUpInside" id="hb6-ia-dZs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL5-JC-HZ5" customClass="insideButtonDesign" customModule="workHours" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL5-JC-HZ5" customClass="insideButtonDesign" customModule="workHours" customModuleProvider="target">
                                         <rect key="frame" x="16" y="128" width="343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="aiZ-IX-lVi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Clock out">
+                                        <state key="normal" title="Clock out" image="chevronDown">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -360,15 +362,19 @@
                                         <date key="date" timeIntervalSinceReferenceDate="569647511.95526302">
                                             <!--2019-01-20 03:25:11 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="clockOutChanged:" destination="Wdb-w9-Ll2" eventType="valueChanged" id="q8Q-1u-QUn"/>
+                                        </connections>
                                     </datePicker>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xd-l6-oI3" customClass="insideButtonDesign" customModule="workHours" customModuleProvider="target">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xd-l6-oI3" customClass="insideButtonDesign" customModule="workHours" customModuleProvider="target">
                                         <rect key="frame" x="16" y="198" width="343" height="50"/>
+                                        <color key="backgroundColor" red="0.039215686270000001" green="0.65098039220000004" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Yzq-Vb-GC1"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="dhX-LD-W3O"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="20" maxY="0.0"/>
                                         <state key="normal" title="Total Hours">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -416,11 +422,14 @@
                         <viewLayoutGuide key="safeArea" id="FIy-Ud-GNG"/>
                     </view>
                     <connections>
+                        <outlet property="clockInButton" destination="ljG-p8-Rrf" id="fMO-yB-o9B"/>
                         <outlet property="clockInPicker" destination="4sh-YG-hQA" id="wPf-JK-hRc"/>
                         <outlet property="clockInPickerHeight" destination="KZ6-dT-yaB" id="rcR-OP-Pfd"/>
+                        <outlet property="clockOutButton" destination="yL5-JC-HZ5" id="jQG-sN-Dvs"/>
                         <outlet property="clockOutPicker" destination="xgc-cI-0Mg" id="NB4-CR-4jh"/>
                         <outlet property="clockOutPickerHeight" destination="tfc-9S-zVM" id="z5P-pu-F4H"/>
                         <outlet property="popUpView" destination="jxC-z7-YhN" id="e8F-Bk-3em"/>
+                        <outlet property="totalHours" destination="1xd-l6-oI3" id="m32-bX-D4z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNf-Ml-Jkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -478,7 +487,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevronRight" width="10" height="18"/>
+        <image name="chevronDown" width="15" height="10"/>
+        <image name="chevronRight" width="9" height="15"/>
         <image name="close" width="22" height="22"/>
     </resources>
 </document>

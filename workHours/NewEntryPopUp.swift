@@ -15,6 +15,12 @@ class NewEntryPopUp: UIViewController {
     @IBOutlet weak var clockOutPicker: UIDatePicker!
     @IBOutlet weak var clockInPickerHeight: NSLayoutConstraint!
     @IBOutlet weak var clockOutPickerHeight: NSLayoutConstraint!
+    @IBOutlet weak var clockInButton: insideButtonDesign!
+    @IBOutlet weak var clockOutButton: insideButtonDesign!
+    @IBOutlet weak var totalHours: insideButtonDesign!
+    
+    var start : Date = Date.init()
+    var end : Date = Date.init()
     
     
     
@@ -30,6 +36,10 @@ class NewEntryPopUp: UIViewController {
         closingGesture.direction = .down
         popUpView.addGestureRecognizer(closingGesture)
         // Do any additional setup after loading the view.
+        clockInPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        clockOutPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        clockInPicker.maximumDate = Date()
+        clockOutPicker.maximumDate = Date()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,29 +76,57 @@ class NewEntryPopUp: UIViewController {
     @IBAction func toggleInPicker(_ sender: Any) {
         clockOutPicker.isHidden = true
         clockOutPickerHeight.constant = 0
+        clockOutButton.setImage(UIImage(named: "chevronDown"), for: .normal)
         
         if clockInPicker.isHidden {
             clockInPicker.isHidden = false
             clockInPickerHeight.constant = 216
+            clockInButton.setImage(UIImage(named: "chevronUp"), for: .normal)
         } else {
             clockInPicker.isHidden = true
             clockInPickerHeight.constant = 0
+            clockInButton.setImage(UIImage(named: "chevronDown"), for: .normal)
         }
     }
     
     @IBAction func toggleOutPicker(_ sender: Any) {
         clockInPicker.isHidden = true
         clockInPickerHeight.constant = 0
+        clockInButton.setImage(UIImage(named: "chevronDown"), for: .normal)
         
         if clockOutPicker.isHidden {
             clockOutPicker.isHidden = false
             clockOutPickerHeight.constant = 216
+            clockOutButton.setImage(UIImage(named: "chevronUp"), for: .normal)
         } else {
             clockOutPicker.isHidden = true
             clockOutPickerHeight.constant = 0
+            clockOutButton.setImage(UIImage(named: "chevronDown"), for: .normal)
         }
     }
     
+
+    @IBAction func clockInChanged(_ sender: Any) {
+        start = clockInPicker.date
+        updateDisplayedHours()
+    }
+    
+    @IBAction func clockOutChanged(_ sender: Any) {
+        end = clockOutPicker.date
+        updateDisplayedHours()
+    }
+    
+    func updateDisplayedHours() {
+        if clockInPicker.date < clockOutPicker.date {
+            let diff = end.timeIntervalSince(start)
+            var hours = Double((Double(diff)/3600))
+            hours = Double(String(format: "%.1f", hours)) ?? 0
+            
+            totalHours.setTitle("\(hours) Hours", for: .normal)
+        } else {
+            totalHours.setTitle("", for: .normal)
+        }
+    }
     
     
 }
